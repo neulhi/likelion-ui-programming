@@ -1,0 +1,15 @@
+# Dependency directories
+node_modules
+
+### macOS ###
+# General
+.DS_Store
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/extensions.json
+
+server
+dist
+.env
+.env.local
