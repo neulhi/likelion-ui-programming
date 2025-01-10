@@ -7,14 +7,19 @@ function App() {
     {
       className: 'app',
     },
-    // createElement(type, props, ...children)
+
     React.createElement(
       Box,
       {
         className: 'box--circle',
+        id: "i'm-box",
+        'aria-label': '나는 박스다!',
+        title: '나는 박스다!',
+        translate: 'no',
       },
       '기본 박스'
     ),
+
     React.createElement(
       Box,
       {
@@ -25,13 +30,14 @@ function App() {
       },
       '작은 박스'
     ),
+
     React.createElement(
       Box,
       {
         size: 'big',
         style: {
           backgroundColor: '#1ecff6',
-					borderRadius: 20, // '20px'
+          borderRadius: 20, // '20px'
         },
       },
       '큰 박스'
