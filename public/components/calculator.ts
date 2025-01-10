@@ -18,7 +18,10 @@ function Calculator(props: { elements?: [number, number]; operator: string }) {
   let right = 0;
 
   if (props.elements) {
-    [left, right] = props.elements;
+    const [l, r] = props.elements;
+
+		left = l ?? left;
+		right = r ?? right;
   }
 
   const outputValue: number = operations[operator](left, right);

@@ -1,16 +1,31 @@
 import React from '../lib/react.js';
 import Calculator from './calculator.js';
 
+const { createElement: h } = React;
+
 function App() {
-  return React.createElement('div', {
+  return h('div', {
     className: 'app',
     children: [
-      React.createElement(Calculator),
-      React.createElement(Calculator, {
+			// 1
+      h(Calculator),
+			// 2
+      h(Calculator, {
         operator: '-',
       }),
-			React.createElement(Calculator, {
+			// 3
+			h(Calculator, {
 				elements: [10, 2],
+      }),
+			// 4
+			h(Calculator, {
+				elements: [2, 3],
+				operator: '*',
+      }),
+			// 5
+			h(Calculator, {
+				elements: [, 6],
+				operator: '/',
       }),
     ],
   });
