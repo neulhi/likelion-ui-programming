@@ -1,16 +1,17 @@
 import React from '../lib/react.js';
-import Calculators from './calculators.js';
-
-const { createElement: h } = React;
+import Box from './box';
 
 function App() {
-  return h(
-		'div', 
-	{
-    className: 'app',
-  },
-	h(Calculators)
-);
+  return React.createElement(
+    'div',
+    {
+      className: 'app',
+    },
+    // createElement(type, props, ...children)
+    React.createElement(Box, null, '기본 박스'),
+    React.createElement(Box, null, '작은 박스'),
+    React.createElement(Box, null, '큰 박스')
+  );
 }
 
 export default App;
