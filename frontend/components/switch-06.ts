@@ -20,14 +20,13 @@ interface SwitchProps {
 
 type SwitchText = 'ON' | 'OFF' | null;
 
-
 function Switch({
   active = false,
   disabled = false,
   showOnOffText = false,
   children,
 }: SwitchProps) {
-	// [미션] 조건문을 3항 연산자 식으로 변경해보세요.
+  // [미션] 조건문을 3항 연산자 식으로 변경해보세요.
   // let switchText: 'ON' | 'OFF' | null = 'OFF';
 
   // if (active) {
@@ -38,22 +37,18 @@ function Switch({
   //   switchText = null;
   // }
 
-	let switchText: SwitchText = !showOnOffText ? null : active ? 'ON' : 'OFF';
+  let switchText: SwitchText = !showOnOffText ? null : active ? 'ON' : 'OFF';
 
-	// [미션] 3항 연산자 식을 조건문으로 변경해보세요.
-  // const switchTextNode = switchText
-  //   ? h('span', { className: 'Switch--text', 'aria-hidden': true }, switchText)
-  //   : null;
+  // [미션] 3항 연산자 식을 조건문으로 변경해보세요.
+  let switchTextNode = null;
 
-	let switchTextNode = null;
-
-	if (switchText) {
-		switchTextNode = h(
-			'span',
-			{ className: 'Switch--text', 'aria-hidden': true },
-			switchText
-		);
-	}
+  if (switchText) {
+    switchTextNode = h(
+      'span',
+      { className: 'Switch--text', 'aria-hidden': true },
+      switchText
+    );
+  }
 
   return h(
     'div',
