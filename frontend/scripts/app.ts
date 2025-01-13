@@ -21,7 +21,10 @@ function App(): React.ReactNode {
       style: appStyles,
     },
     /* 컴포넌트의 자식들(children) */
-    h(Switch, { active: true, showOnOffText: false }, 'Wi-Fi'), // JSX: <Switch active>Wi-Fi</Switch>
+    h(Switch, 
+			{ active: true, showOnOffText: false, onToggle: () => console.log('클릭 스위치 컴포넌트') },
+			'Wi-Fi'
+		), // JSX: <Switch active>Wi-Fi</Switch>
     h(Switch, { active: false, showOnOffText: false }, 'Bluetooth'), // JSX: <Switch>Bluetooth</Switch>
     h(Switch, { disabled: true, showOnOffText: false }, 'Reduced Motion') // JSX: <Switch disabled>Reduced Motion</Switch>
   );

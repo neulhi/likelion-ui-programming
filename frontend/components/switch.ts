@@ -16,6 +16,7 @@ interface SwitchProps {
   disabled?: boolean;
   showOnOffText?: boolean;
   children: React.ReactNode;
+	onToggle?: () => void; 
 }
 
 type SwitchText = 'ON' | 'OFF' | null;
@@ -25,6 +26,7 @@ function Switch({
   disabled = false,
   showOnOffText = false,
   children,
+	onToggle,
 }: SwitchProps) {
 	// [미션] 조건문을 3항 연산자 식으로 변경해보세요.
   // let switchText: 'ON' | 'OFF' | null = 'OFF';
@@ -53,6 +55,11 @@ function Switch({
 		);
 	}
 
+	const handleClick = () => {
+		// 옵셔널 체이닝을 사용한 함수 실행 여부 조건 처리
+		onToggle?.();
+	}
+
   return h(
     'div',
     {
@@ -63,11 +70,7 @@ function Switch({
       className: 'Switch',
 			// 이벤트 핸들러를 onClick 속성에 연결
 			// 활성 상태 또는 비활성 상태에 따라 함수(기능) 작동 여부 조건 처리
-			onClick: () => {
-				// 비활성 상태인 경우 함수 종료 (아무런 작동 없음)
-				if (disabled) return;
-				console.log('클릭 스위치 컴포넌트');
-			}
+			onClick: onToggle,
     },
     h('span', { className: 'Switch--label' }, children),
     h(
