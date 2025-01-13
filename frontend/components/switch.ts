@@ -55,9 +55,18 @@ function Switch({
 		);
 	}
 
-	const handleClick = () => {
-		// 옵셔널 체이닝을 사용한 함수 실행 여부 조건 처리
+	const handleToggle = () => {
+		if (disabled) return;
 		onToggle?.();
+	}
+
+	const handleKeyControl = (e: any) => {
+		const key = e.code;
+		const shiftKey = !!e.shiftKey
+
+		if (!disabled && !shiftKey && (key === 'Space' || key === 'Enter')) {
+			onToggle?.();
+		}
 	}
 
   return h(
@@ -70,7 +79,8 @@ function Switch({
       className: 'Switch',
 			// 이벤트 핸들러를 onClick 속성에 연결
 			// 활성 상태 또는 비활성 상태에 따라 함수(기능) 작동 여부 조건 처리
-			onClick: onToggle,
+			onClick: handleToggle,
+			onKeyDown: handleKeyControl,
     },
     h('span', { className: 'Switch--label' }, children),
     h(
