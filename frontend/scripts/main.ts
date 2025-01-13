@@ -10,6 +10,7 @@ if (!root) {
 } else {
 	// React 컴포넌트 -> React 엘리먼트 생성
   const app = React.createElement(App);
+	// 생성된 React 엘리먼트는 ReactDOMRoot 인스턴스(객체)의
 	// render() 메서드에 전달되어 React 앱 화면 표시
   ReactDOM.createRoot(root).render(app);
 }
