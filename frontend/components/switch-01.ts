@@ -7,36 +7,28 @@
 // - [ ] 사용자가 Space, Enter(옵션) 키를 눌렀을 때 작동되도록 설정
 // - [ ] 비활성 상태인 경우, aria-disabled 속성을 사용해 설정
 // --------------------------------------------------------------------------
-
 import React from '../lib/react.js';
 
 const h = React.createElement;
 
 interface SwitchProps {
-	active?: boolean;
-	disabled?: boolean;
-	children: React.ReactNode /* switch label */
+  active?: boolean; // 기본 값: false 
+  disabled?: boolean; // 기본 값: false
+  children: React.ReactNode; /* switch label */
 }
 
+// 속성(prop) 기본 값 설정을 위해 구조 분해 할당
 function Switch({ active = false, disabled = false, children }: SwitchProps) {
-  return h(
-    'div',
-    {
-      role: 'switch',
-      'aria-checked': active,
-      'aria-disabled': disabled,
-			tabIndex: 0,
-			id: 'switchID',
-			className: 'Switch',
-			children: [
-				h('span', { className: 'Switch--label' }, children)
-			],
-    },
-  );
+  return h('div', {
+    role: 'switch',
+    'aria-checked': active,
+    'aria-disabled': disabled,
+    tabIndex: 0,
+    className: 'Switch',
+    children: [
+      h('span', { className: 'Switch--label' }, children)
+    ]
+  });
 }
-
-const switchStyles = {
-	
-};
 
 export default Switch;
