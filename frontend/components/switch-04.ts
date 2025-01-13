@@ -38,18 +38,19 @@ function Switch({
     ? h('span', { className: 'Switch--text', 'aria-hidden': true }, switchText)
     : null;
 
-  return h('div', {
-    role: 'switch',
-    'aria-checked': active,
-    'aria-disabled': disabled,
-    tabIndex: 0,
-    className: 'Switch',
-    children: [
-      h('span', { className: 'Switch--label' }, children),
-      h('span', { className: 'Switch--knob' }),
-      switchTextNode,
-    ],
-  });
+  return h(
+    'div',
+    {
+      role: 'switch',
+      'aria-checked': active,
+      'aria-disabled': disabled,
+      tabIndex: 0,
+      className: 'Switch',
+    },
+    h('span', { className: 'Switch--label' }, children),
+    h('span', { className: 'Switch--knob' }),
+    switchTextNode
+  );
 }
 
 export default Switch;
