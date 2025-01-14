@@ -13,7 +13,7 @@ if (!root) {
 } else {
   ReactDOM.createRoot(root).render(
     <StrictMode>
-      <App />
+      {/* <App /> */}
 			<Playground />
     </StrictMode>
   );
