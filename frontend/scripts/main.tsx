@@ -4,6 +4,7 @@
 import React, { StrictMode } from '../lib/react.js';
 import ReactDOM from '../lib/react-dom/client.js';
 import App from './app.tsx';
+import Playground from '../components/playground.tsx';
 
 const root = document.getElementById('react');
 
@@ -13,6 +14,7 @@ if (!root) {
   ReactDOM.createRoot(root).render(
     <StrictMode>
       <App />
+			<Playground />
     </StrictMode>
   );
 }
